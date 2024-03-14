@@ -1,17 +1,22 @@
 // import render engine and HyperScript Tagged Markup from Preact
 import { render } from "https://esm.sh/preact";
-import { html as template } from "https://esm.sh/htm/preact";
+import { html } from "https://esm.sh/htm/preact";
 
+// main Koala function
 const Koala = () => {
     // secret variable that no one has access to 
     const settings = {}
     // and can just create props through assignment
-    const html = func => settings.html = func
     const data = obj => settings.data = obj
-    
-    const initiate = () => render(settings.html(settings.data), document.body)
-    
-    return { data, html, initiate }
+    // save template to settings
+    const template = func => settings.html = func  
+
+    // return object that gets assigned to the app variable
+    return { 
+        data, 
+        template, 
+        render: () => render(settings.html(settings.data), document.body)
+    }
   }
   
 export default Koala
