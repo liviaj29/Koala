@@ -1,2 +1,2 @@
-# Koala
+# 🐨 Koala
 The best JavaScript Framework
