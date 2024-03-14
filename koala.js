@@ -4,17 +4,16 @@ import { html } from "https://esm.sh/htm/preact";
 
 // main Koala function
 const Koala = () => {
-    // secret variable that no one has access to 
+    // secret variable that no one has access to. Access is controlled through methods
     const settings = {}
-    // and can just create props through assignment
-    const data = obj => settings.data = obj
-    // save template to settings
-    const template = func => settings.html = func  
 
     // return object that gets assigned to the app variable
-    return { 
-        data, 
-        template, 
+    return {
+        // used to set the initial data object, stored in the settings object
+        data:  obj => settings.data = obj
+        // view template is stored in the settings object
+        template: func => settings.html = func,
+        // renders the template to the page, used for the initial page render
         render: () => render(settings.html(settings.data), document.body)
     }
   }
