@@ -18,4 +18,4 @@ const Koala = () => {
     };
   };
   
-export default Koala
+export { Koala, html }
