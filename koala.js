@@ -13,6 +13,10 @@ const Koala = () => {
         data:  obj => settings.data = obj,
         // view template is stored in the settings object
         template: func => settings.html = func,
+        update: func => {
+            settings.data = {...settings.data, ...func(settings.data)}
+            render(settings.html(settings.data), document.body)
+        },
         // renders the template to the page, used for the initial page render
         render: () => render(settings.html(settings.data), document.body)
     };
