@@ -16,12 +16,20 @@ const Koala = (data={}) => {
         template: func => settings.html = func,
         update: func => {
             settings.data = {...structuredClone(settings.data), ...func(settings.data)}
-            render(settings.html(settings.data), document.body)
-        },
+            render(settings.html(settings.data), settings.element)
+            if( settings.debug ){
+                console.log(JSON.stringify(settings.data))
+        }},
         // set the root element to render to
         root: el => settings.element = el,
         // renders the template to the page, used for the initial page render
-        render: () => render(settings.html(settings.data), settings.element)
+        render: () => {
+            render(settings.html(settings.data), settings.element)
+            // if user is using debug, log all the data values to the console.
+            if( settings.debug ){
+                console.log(JSON.stringify(settings.data))
+            }},
+        debug: bool => settings.debug = bool
     };
   };
   
