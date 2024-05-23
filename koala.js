@@ -14,8 +14,10 @@ const Koala = (data={}) => {
     return {
         // view template is stored in the settings object
         template: func => settings.html = func,
-        update: func => {
-            settings.data = {...structuredClone(settings.data), ...func(settings.data)}
+        update: (...func) => {
+            settings.data = func.reduce((data, newData) => {
+              return {...structuredClone(data), ...newData(data)}
+            }, settings.data)
             render(settings.html(settings.data), settings.element)
             if( settings.debug ){
                 console.log(JSON.stringify(settings.data))
