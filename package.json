@@ -1,0 +1,25 @@
+{
+  "name": "koala",
+  "version": "1.0.0",
+  "description": "A tiny JavaScript framework that wraps around your code",
+  "main": "koala.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liviaj29/Koala.git"
+  },
+  "keywords": [
+    "framework",
+    "speedy",
+    "tiny",
+    "javascript"
+  ],
+  "author": "Olivia Gibson and Darren Jones",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liviaj29/Koala/issues"
+  },
+  "homepage": "https://github.com/liviaj29/Koala#readme"
+}
